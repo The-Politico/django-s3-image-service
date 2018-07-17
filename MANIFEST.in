@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include s3imageservice/static *
+recursive-include s3imageservice/templates *
