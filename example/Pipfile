@@ -15,5 +15,6 @@ djangorestframework = "*"
 "psycopg2" = "*"
 "s3imageservice" = {path = "./..", editable = true}
 "ed0a5ba" = {path = "./..", editable = true}
+pillow = "*"
 
 [dev-packages]

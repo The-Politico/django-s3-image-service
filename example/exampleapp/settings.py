@@ -95,6 +95,8 @@ STATIC_URL = '/static/'
 #########################
 # s3imageservice settings
 
+S3IMAGESERVICE_BASE_URL = 'https://politico.com/s3-images/'
+
 S3IMAGESERVICE_SECRET_KEY = ''
 S3IMAGESERVICE_AWS_ACCESS_KEY_ID = ''
 S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = ''
