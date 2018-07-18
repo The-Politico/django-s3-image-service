@@ -156,6 +156,5 @@ S3IMAGESERVICE_AWS_S3_STATIC_ROOT = 'https://s3.amazonaws.com/staging.interactiv
 #################
 # Production S3 #
 #################
-# S3IMAGESERVICE_CLOUDFRONT_ALTERNATE_DOMAIN = ''
 # S3IMAGESERVICE_AWS_S3_BUCKET = 'interactives.politico.com'
 # S3IMAGESERVICE_AWS_S3_STATIC_ROOT = 'https://www.politico.com'
