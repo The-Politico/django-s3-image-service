@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'tokenservice',
     's3imageservice',
 ]
 
@@ -92,15 +93,69 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+###########
+# Logging #
+###########
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s' # noqa
+        },
+        'simple': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+        'debug_console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'tasks': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
 #########################
 # s3imageservice settings
 
-S3IMAGESERVICE_BASE_URL = 'https://politico.com/s3-images/'
+S3IMAGESERVICE_API_AUTHENTICATION_CLASS = (
+    'tokenservice.authentication.TokenAuthentication'
+)
 
 S3IMAGESERVICE_SECRET_KEY = ''
-S3IMAGESERVICE_AWS_ACCESS_KEY_ID = ''
-S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = ''
-S3IMAGESERVICE_AWS_REGION = ''
-S3IMAGESERVICE_AWS_S3_BUCKET = ''
-S3IMAGESERVICE_CLOUDFRONT_ALTERNATE_DOMAIN = ''
-S3IMAGESERVICE_S3_UPLOAD_ROOT = ''
+S3IMAGESERVICE_AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+S3IMAGESERVICE_AWS_REGION = 'us-east-2'
+S3IMAGESERVICE_S3_UPLOAD_ROOT = 'interactives/uploads/image-service/'
+
+##############
+# Staging S3 #
+##############
+S3IMAGESERVICE_AWS_S3_BUCKET = 'staging.interactives.politico.com'
+S3IMAGESERVICE_AWS_S3_STATIC_ROOT = 'https://s3.amazonaws.com/staging.interactives.politico.com' # noqa
+
+#################
+# Production S3 #
+#################
+# S3IMAGESERVICE_CLOUDFRONT_ALTERNATE_DOMAIN = ''
+# S3IMAGESERVICE_AWS_S3_BUCKET = 'interactives.politico.com'
+# S3IMAGESERVICE_AWS_S3_STATIC_ROOT = 'https://www.politico.com'

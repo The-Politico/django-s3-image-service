@@ -4,6 +4,7 @@ with any overrides set in project settings.
 """
 
 from django.conf import settings as project_settings
+from s3imageservice.utils.importers import import_class
 
 from .exceptions import S3imageserviceConfigError
 
@@ -38,6 +39,25 @@ Settings.CLOUDFRONT_ALTERNATE_DOMAIN = getattr(
 
 Settings.S3_UPLOAD_ROOT = getattr(
     project_settings, 'S3IMAGESERVICE_S3_UPLOAD_ROOT', 'uploads/s3imageservice')
+
+Settings.AWS_S3_STATIC_ROOT = getattr(
+    project_settings, 'S3IMAGESERVICE_AWS_S3_STATIC_ROOT', None)
+
+Settings.API_AUTHENTICATION_CLASS = import_class(
+    getattr(
+        project_settings,
+        'S3IMAGESERVICE_API_AUTHENTICATION_CLASS',
+        'rest_framework.authentication.BasicAuthentication'
+    )
+)
+
+Settings.API_PERMISSION_CLASS = import_class(
+    getattr(
+        project_settings,
+        'S3IMAGESERVICE_API_PERMISSION_CLASS',
+        'rest_framework.permissions.IsAuthenticated'
+    )
+)
 
 
 settings = Settings

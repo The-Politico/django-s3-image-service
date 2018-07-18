@@ -16,5 +16,9 @@ djangorestframework = "*"
 "s3imageservice" = {path = "./..", editable = true}
 "ed0a5ba" = {path = "./..", editable = true}
 pillow = "*"
+celery = "*"
+"boto3" = "*"
+django-storages = "*"
+django-politico-token-service = "*"
 
 [dev-packages]

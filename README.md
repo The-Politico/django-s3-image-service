@@ -4,10 +4,10 @@
 
 ### Quickstart
 
-1. Install the app.
+1. Install the app and its dependencies.
 
   ```
-  $ pip install django-s3-image-service
+  $ pip install django-s3-image-service djangorestframework boto3 Pillow celery
   ```
 
 2. Add the app to your Django project and configure settings.
@@ -22,13 +22,13 @@
   #########################
   # s3imageservice settings
 
-  S3IMAGESERVICE_SECRET_KEY = ''
+  S3IMAGESERVICE_API_AUTHENTICATION_CLASS = ('')
   S3IMAGESERVICE_AWS_ACCESS_KEY_ID = ''
   S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = ''
   S3IMAGESERVICE_AWS_REGION = ''
-  S3IMAGESERVICE_AWS_S3_BUCKET = ''
-  S3IMAGESERVICE_CLOUDFRONT_ALTERNATE_DOMAIN = ''
   S3IMAGESERVICE_S3_UPLOAD_ROOT = ''
+  S3IMAGESERVICE_AWS_S3_BUCKET = ''
+  S3IMAGESERVICE_AWS_S3_STATIC_ROOT = ''
   ```
 
 ### Developing
@@ -40,19 +40,6 @@ Developing python files? Move into example directory and run the development ser
   ```
   $ cd example
   $ pipenv run python manage.py runserver
-  ```
-
-Developing static assets? Move into the pluggable app's staticapp directory and start the node development server, which will automatically proxy Django's development server.
-
-  ```
-  $ cd s3imageservice/staticapp
-  $ gulp
-  ```
-
-Want to not worry about it? Use the shortcut make command.
-
-  ```
-  $ make dev
   ```
 
 ##### Setting up a PostgreSQL database

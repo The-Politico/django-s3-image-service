@@ -1,2 +1,2 @@
 # flake8: noqa
-from .upload import Upload
+from .image_service import ImageService
