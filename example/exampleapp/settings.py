@@ -141,6 +141,7 @@ LOGGING = {
 S3IMAGESERVICE_API_AUTHENTICATION_CLASS = (
     'tokenservice.authentication.TokenAuthentication'
 )
+S3IMAGESERVICE_FILE_MB_LIMIT = 100
 
 S3IMAGESERVICE_MEDIA_PATH = 'image-service/'
 S3IMAGESERVICE_SECRET_KEY = 'a-bad-secret-key'

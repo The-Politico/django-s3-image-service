@@ -14,8 +14,7 @@ from rest_framework.exceptions import UnsupportedMediaType, ParseError
 from s3imageservice.conf import settings
 from s3imageservice.celery import process_images
 
-FILE_SIZE_MB_LIMIT = 100
-FILE_SIZE_LIMIT = FILE_SIZE_MB_LIMIT * 1000 * 1000
+FILE_SIZE_LIMIT = settings.FILE_MB_LIMIT * 1000 * 1000
 FILE_TYPES = ['image/jpg', 'image/jpeg', 'image/png']
 
 

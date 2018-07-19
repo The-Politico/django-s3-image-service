@@ -66,5 +66,9 @@ Settings.MEDIA_ROOT = getattr(
 Settings.MEDIA_PATH = getattr(
     project_settings, 'S3IMAGESERVICE_MEDIA_PATH', '')
 
+Settings.FILE_MB_LIMIT = getattr(
+    project_settings, 'S3IMAGESERVICE_FILE_MB_LIMIT', 100)
+
+
 
 settings = Settings
