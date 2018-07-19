@@ -22,7 +22,8 @@
   #########################
   # s3imageservice settings
 
-  S3IMAGESERVICE_API_AUTHENTICATION_CLASS = ('')
+  S3IMAGESERVICE_API_AUTHENTICATION_CLASS = ''
+  S3IMAGESERVICE_API_PERMISSION_CLASS = ''
   S3IMAGESERVICE_AWS_ACCESS_KEY_ID = ''
   S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = ''
   S3IMAGESERVICE_AWS_REGION = ''
@@ -30,6 +31,70 @@
   S3IMAGESERVICE_AWS_S3_BUCKET = ''
   S3IMAGESERVICE_AWS_S3_STATIC_ROOT = ''
   ```
+
+### Services
+**Upload To S3**
+```javascript
+fetch('https://your-api.com/', {
+  method: 'POST',
+  headers: {
+    Authorization: `Token ${YOUR_TOKEN}`, // or whatever auth strategy you use
+    'Content-Type': 'multipart/form-data',
+  },
+  body: {
+    "img": file.[jpg|png]
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});
+```
+
+You may also pass values for the following params in body:
+
+| Option        | Description | Type | Default | Example |
+| ------------- | ----------- | ---- | --------| --------|
+| sizes     | An array of sizes to resize the image to. | int[] | None | [300, 500, 800]|
+| compression | Web optimize and compress jpg to 80% quality. | boolean | True | True
+| progressive | Convert image to a progressive jpg. | boolean | True | True
+
+Non explicitly sized requests return a response like this.
+```json
+{
+    "success": "ok",
+    "format": "jpg",
+    "urls": [
+        "https://your-s3-domain.com/image-service/2018/7/19/7885aae30f.jpg"
+    ],
+    "img": {
+        "src": "https://your-s3-domain.com/image-service/2018/7/19/7885aae30f.jpg"
+    }
+}
+```
+
+An explicitly sized request with the sizes `[300, 500, 800]` will return a response like this.
+```json
+{
+    "success": "ok",
+    "format": "jpg",
+    "urls": [
+        "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-300.jpg",
+        "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-500.jpg",
+        "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg"
+    ],
+    "sizes": [
+        300,
+        500,
+        800
+    ],
+    "img": {
+        "srcset": "'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-300.jpg 300w', 'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-500.jpg 500w', 'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg 800w'",
+        "sizes": "'(max-width: 300px) 300px', '(max-width: 500px) 500px', '800px'",
+        "src": "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg"
+    }
+}
+```
 
 ### Developing
 
