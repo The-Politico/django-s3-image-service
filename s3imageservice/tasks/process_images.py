@@ -20,14 +20,28 @@ def process_images(config):
 
     # Open the image
     base_img = Image.open(config["path"]+config["filename"])
+    upload_imgs = []
 
     # Create multiple sizes
-    for size in config["sizes"]:
-        copy = base_img.copy()
-        copy.thumbnail((size["size"], base_img.height), Image.ANTIALIAS)
+    if "size" in config["sizes"][0]:
+        for size in config["sizes"]:
+            copy = base_img.copy()
+            copy.thumbnail((size["size"], base_img.height), Image.ANTIALIAS)
+            upload_imgs.append({"filename": size["filename"], "file": copy})
 
+    # Or upload the one size
+    else:
+        upload_imgs.append({
+            "filename": config["sizes"][0]["filename"],
+            "file": base_img
+        })
+
+    # Process and upload to s3
+    print(upload_imgs)
+    for img in upload_imgs:
         imgByteArr = io.BytesIO()
-        copy.save(
+
+        img["file"].save(
             imgByteArr,
             format="JPEG",
             quality=config["quality"],
@@ -35,8 +49,7 @@ def process_images(config):
             progressive=config["progressive"]
         )
 
-        # Upload each size to s3
-        publish_to_aws(size["filename"], imgByteArr.getvalue())
+        publish_to_aws(img["filename"], imgByteArr.getvalue())
 
     # Delete temporary image
     os.remove(os.path.join(config["path"], config["filename"]))
