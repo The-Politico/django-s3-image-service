@@ -37,7 +37,6 @@ def process_images(config):
         })
 
     # Process and upload to s3
-    print(upload_imgs)
     for img in upload_imgs:
         imgByteArr = io.BytesIO()
 
