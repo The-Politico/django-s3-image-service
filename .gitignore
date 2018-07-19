@@ -146,6 +146,16 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+
 # End of https://www.gitignore.io/api/python,macos,linux
 
 # Temporary Files
