@@ -19,14 +19,14 @@ def publish_to_aws(filepath, data):
         filepath
     )
 
-    # bucket = get_bucket()
-    #
-    # bucket.put_object(
-    #     Key=key,
-    #     ACL=defaults.ACL,
-    #     Body=data,
-    #     CacheControl=CACHE_HEADER,
-    #     ContentType='image/jpg'
-    # )
+    bucket = get_bucket()
+
+    bucket.put_object(
+        Key=key,
+        ACL=defaults.ACL,
+        Body=data,
+        CacheControl=CACHE_HEADER,
+        ContentType='image/jpg'
+    )
 
     logger.info('%s published to AWS.' % (key))
