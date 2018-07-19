@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "428d15c40f0cfe7137361087375587832d2d6898b2cf676209fc1f62d82e46e1"
+            "sha256": "e2e009a00e538ba8ecd80bcbf208a8cae0dea6369cfb192b0da218b78c8ec09b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -45,18 +45,18 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:13723dba82f34c90611ddb3e507cbd2542070ecf4d8d96e2b3d9beb0e1a69868",
-                "sha256:580f0c3ba315a9325bd1caa789efb7f5e9d3f2adff98f981fbca10808125c1b6"
+                "sha256:1bee9184ff54e078a9e50931511e413fbcfceb4c6467e3c8726ddbcf509c586b",
+                "sha256:c39040e73e12f43f906e8aaa3d32490e37d1f25f257f18be06e6cea65dd409bf"
             ],
             "index": "pypi",
-            "version": "==1.7.59"
+            "version": "==1.7.60"
         },
         "botocore": {
             "hashes": [
-                "sha256:839c10707b129e3e88bc0d328ffc59b771d1951600edb3a4b2875a0e0be7db1a",
-                "sha256:da78b1f4ae8b6780b28c8a245384ff3b1685fbfbf664c0da0b7f2dd3810a0199"
+                "sha256:c03fd2b80c3f369f0b892c05a8dade0b6383ce076ad6ba43c3aabea408a163ea",
+                "sha256:d60dcbc5209978fbf6147de39cc5ac7c3dbfb23d19b123ed378880627088c35a"
             ],
-            "version": "==1.10.59"
+            "version": "==1.10.60"
         },
         "celery": {
             "hashes": [
@@ -84,11 +84,11 @@
         },
         "django-politico-token-service": {
             "hashes": [
-                "sha256:0d0b2fe186a9bdd65487a939317f2c7c67ec55a5836a2f1e5a0efc45a3ac3d8c",
-                "sha256:4c764d7365b3ec46af267ca539f4cd804303cc0ba8d5d31d940bb4bd078ba62d"
+                "sha256:1e0010f389095782d79d00cfb4f62efb83cf332c90c5a97956892944904ad9d6",
+                "sha256:34583a00ec80b4e7032a74b4a48f93ffb3a79f9348be38a5319b13c98cabc6b1"
             ],
             "index": "pypi",
-            "version": "==0.0.2"
+            "version": "==0.0.3"
         },
         "django-storages": {
             "hashes": [
@@ -298,6 +298,14 @@
                 "sha256:ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
             ],
             "version": "==2018.5"
+        },
+        "redis": {
+            "hashes": [
+                "sha256:8a1900a9f2a0a44ecf6e8b5eb3e967a9909dfed219ad66df094f27f7d6f330fb",
+                "sha256:a22ca993cea2962dbb588f9f30d0015ac4afcc45bee27d3978c0dbe9e97c6c0f"
+            ],
+            "index": "pypi",
+            "version": "==2.10.6"
         },
         "s3imageservice": {
             "editable": true,

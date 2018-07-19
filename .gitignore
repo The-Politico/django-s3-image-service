@@ -150,3 +150,6 @@ venv.bak/
 
 # Temporary Files
 tmp/
+
+# Custom
+media/

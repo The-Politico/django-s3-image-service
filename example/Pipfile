@@ -20,5 +20,6 @@ celery = "*"
 "boto3" = "*"
 django-storages = "*"
 django-politico-token-service = "*"
+redis = "*"
 
 [dev-packages]

@@ -3,12 +3,11 @@ import os
 from celery import Celery
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'datalab.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'exampleapp.settings')
 
-app = Celery('datalab')
+app = Celery('s3imageservice', broker="redis://localhost")
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.update(
-    broker_url=os.getenv('REDIS_URL', '127.0.0.1:6379'),
     task_serializer='json',
     timezone='America/New_York',
 )

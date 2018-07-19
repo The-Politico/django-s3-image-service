@@ -94,11 +94,15 @@ class ImageService(APIView):
                 "size": size
             })
 
-        # Process images and upload to s3
-        imgByteArr = io.BytesIO()
-        base_img.save(imgByteArr, format="JPEG")
+        # Save image in local media
+        file_path = os.path.join(settings.MEDIA_ROOT, settings.MEDIA_PATH)
+        if not os.path.exists(file_path):
+            os.makedirs(file_path)
+        base_filname = "%s.jpg" % hash
+        base_img.save(file_path+base_filname, format="JPEG")
         config = {
-            "img": imgByteArr,
+            "path": file_path,
+            "filename": base_filname,
             "compression": compression,
             "progressive": progressive,
             "quality": quality,

@@ -59,5 +59,11 @@ Settings.API_PERMISSION_CLASS = import_class(
     )
 )
 
+Settings.MEDIA_ROOT = getattr(
+    project_settings, 'MEDIA_ROOT', '')
+
+Settings.MEDIA_PATH = getattr(
+    project_settings, 'S3IMAGESERVICE_MEDIA_PATH', '')
+
 
 settings = Settings

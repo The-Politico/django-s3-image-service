@@ -92,6 +92,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = 'media/'
 
 ###########
 # Logging #
@@ -141,7 +142,8 @@ S3IMAGESERVICE_API_AUTHENTICATION_CLASS = (
     'tokenservice.authentication.TokenAuthentication'
 )
 
-S3IMAGESERVICE_SECRET_KEY = ''
+S3IMAGESERVICE_MEDIA_PATH = 'image-service/'
+S3IMAGESERVICE_SECRET_KEY = 'a-bad-secret-key'
 S3IMAGESERVICE_AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 S3IMAGESERVICE_AWS_REGION = 'us-east-2'
