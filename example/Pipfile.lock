@@ -1,7 +1,11 @@
 {
     "_meta": {
         "hash": {
+<<<<<<< Updated upstream
             "sha256": "e2e009a00e538ba8ecd80bcbf208a8cae0dea6369cfb192b0da218b78c8ec09b"
+=======
+            "sha256": "932480789721f3f1f575fabb27b0f0bcc6f13973183804ac54594b754b710b9e"
+>>>>>>> Stashed changes
         },
         "pipfile-spec": 6,
         "requires": {
@@ -81,6 +85,14 @@
             ],
             "index": "pypi",
             "version": "==2.0.7"
+        },
+        "django-cors-headers": {
+            "hashes": [
+                "sha256:5545009c9b233ea7e70da7dbab7cb1c12afa01279895086f98ec243d7eab46fa",
+                "sha256:c4c2ee97139d18541a1be7d96fe337d1694623816d83f53cb7c00da9b94acae1"
+            ],
+            "index": "pypi",
+            "version": "==2.4.0"
         },
         "django-politico-token-service": {
             "hashes": [
