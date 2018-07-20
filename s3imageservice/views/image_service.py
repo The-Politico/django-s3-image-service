@@ -32,9 +32,16 @@ class ImageService(APIView):
         if successful.
         """
 
+        # request.data["img"].save("test.jpg")
+        print("xx")
+        print(request.FILES)
+        print("img" in request.FILES)
+        print(request.FILES["img"].content_type)
+
         try:
             file = request.FILES["img"]
         except KeyError:
+            print("test")
             raise ParseError(detail="'img' must be provided.")
 
         sizes = request.data.get("sizes", None)

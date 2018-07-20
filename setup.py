@@ -26,6 +26,6 @@ setup(
     include_package_data=True,
     install_requires=[],
     extras_require={
-        'test': ['pytest'],
+        'test': ['crayons', 'Pillow'],
     },
 )
