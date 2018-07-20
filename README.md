@@ -36,15 +36,21 @@
 ### Services
 **Upload To S3**
 ```javascript
+const img = fileInputNode.files[0];
+const sizes = [300, 500, 800]; // optional
+const compression = false; // optional
+
+const formData = new FormData();
+formData.append('img', img);
+formData.append('sizes', JSON.stringify(sizes)); // optional
+formData.append('compression', JSON.stringify(compression)); // optional
+
 fetch('https://your-api.com/', {
   method: 'POST',
   headers: {
     Authorization: `Token ${YOUR_TOKEN}`, // or whatever auth strategy you use
-    'Content-Type': 'multipart/form-data',
   },
-  body: {
-    "img": file.[jpg|png]
-  }
+  body: formData
 })
 .then(response => response.json())
 .then(data => {
