@@ -29,4 +29,4 @@ def publish_to_aws(filepath, data):
         ContentType='image/jpg'
     )
 
-    logger.info('%s published to AWS.' % (key))
+    logger.info('AWS Published: %s.' % (key))

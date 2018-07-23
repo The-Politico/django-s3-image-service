@@ -5,6 +5,7 @@ import os
 from operator import itemgetter
 from PIL import Image
 from datetime import datetime
+import logging
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import parser_classes
@@ -13,6 +14,8 @@ from rest_framework.exceptions import UnsupportedMediaType, ParseError
 
 from s3imageservice.conf import settings
 from s3imageservice.celery import process_images
+
+logger = logging.getLogger('tasks')
 
 FILE_SIZE_LIMIT = settings.FILE_MB_LIMIT * 1000 * 1000
 FILE_TYPES = ['image/jpg', 'image/jpeg', 'image/png']
@@ -100,9 +103,11 @@ class ImageService(APIView):
         Upload and creates images for each size provided.
         Returns response with image and path data.
         """
+
         # Get base file and filename
         base_img = Image.open(file)
         hash = uuid.uuid4().hex[0:10]
+        logger.info('Request for image service approved: {}'.format(hash))
 
         # Convert color options for PNGs
         if(base_img.format == 'PNG'):
@@ -145,6 +150,10 @@ class ImageService(APIView):
         if not os.path.exists(file_path):
             os.makedirs(file_path)
         base_filname = "%s.jpg" % hash
+
+        logger.info(
+            'Saving local media file in {}'.format(file_path+base_filname)
+        )
         base_img.save(file_path+base_filname, format="JPEG")
         config = {
             "path": file_path,
