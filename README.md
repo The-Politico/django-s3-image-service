@@ -7,7 +7,7 @@
 1. Install the app and its dependencies.
 
   ```
-  $ pip install django-s3-image-service djangorestframework boto3 Pillow celery
+  $ pip install django-s3-image-service djangorestframework boto3 django-storages Pillow celery
   ```
 
 2. Add the app to your Django project and configure settings.
@@ -15,6 +15,7 @@
   ```python
   INSTALLED_APPS = [
       # ...
+      'storages',
       'rest_framework',
       's3imageservice',
   ]
