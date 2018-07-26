@@ -178,6 +178,12 @@ class ImageService(APIView):
 
         resp_urls = [base_url + img["filename"] for img in sorted_imgs]
 
+        canonical_url = "https://s3.amazonaws.com/" + os.path.join(
+            settings.AWS_S3_BUCKET,
+            settings.S3_UPLOAD_ROOT,
+            sorted_imgs[-1]["filename"]
+        )
+
         if sizes:
             # Multiple size response
             resp_sizes = [img["size"] for img in sorted_imgs]
@@ -202,6 +208,7 @@ class ImageService(APIView):
             return {
               "success": "ok",
               "format": "jpg",
+              "canonical": canonical_url,
               "urls": resp_urls,
               "sizes": resp_sizes,
               "img": {
@@ -216,6 +223,7 @@ class ImageService(APIView):
             return {
               "success": "ok",
               "format": "jpg",
+              "canonical": canonical_url,
               "urls": resp_urls,
               "img": {
                 "src": resp_urls[-1]
