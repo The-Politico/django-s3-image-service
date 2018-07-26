@@ -33,5 +33,4 @@ class StorageService(S3Boto3Storage):
         'CacheControl': 'max-age=86400',
         'ACL': 'public-read',
     }
-    custom_domain = settings.CLOUDFRONT_ALTERNATE_DOMAIN
     location = settings.S3_UPLOAD_ROOT
