@@ -5,10 +5,10 @@ Handle s3 image uploads via API with some sizing and processing options.
 
 ### Quickstart
 
-1. Install the app and its dependencies.
+1. Install the app.
 
   ```
-  $ pip install django-s3-image-service djangorestframework django-cors-headers django-storages boto3 Pillow celery
+  $ pip install django-s3-image-service
   ```
 
 2. Add the app and its dependencies to your Django project and configure settings for this service and use the recommended CORS setup if you don't already have one. See [Options Explained](#options-explained) for more.
