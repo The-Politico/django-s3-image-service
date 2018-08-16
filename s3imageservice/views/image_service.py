@@ -1,5 +1,4 @@
 import json
-import io
 import uuid
 import os
 from operator import itemgetter
