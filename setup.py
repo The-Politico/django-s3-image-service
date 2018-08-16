@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-s3-image-service',
-    version='0.0.4',
+    version='0.0.5',
     description='Handle s3 image uploads via API with some sizing and processing options.',
     url='https://github.com/The-Politico/django-s3-image-service',
     author='POLITICO interactive news',
@@ -24,7 +24,14 @@ setup(
     keywords='',
     packages=find_packages(exclude=['docs', 'tests', 'example']),
     include_package_data=True,
-    install_requires=[],
+    install_requires=[
+        'djangorestframework',
+        'django-cors-headers',
+        'django-storages',
+        'boto3',
+        'Pillow',
+        'celery'
+    ],
     extras_require={
         'test': ['pytest'],
     },

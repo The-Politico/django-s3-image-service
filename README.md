@@ -119,8 +119,8 @@ An explicitly sized request with the sizes `[300, 500, 800]` will return a respo
         800
     ],
     "img": {
-        "srcset": "'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-300.jpg 300w', 'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-500.jpg 500w', 'https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg 800w'",
-        "sizes": "'(max-width: 300px) 300px', '(max-width: 500px) 500px', '800px'",
+        "srcset": "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-300.jpg 300w, https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-500.jpg 500w, https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg 800w",
+        "sizes": "(max-width: 300px) 300px, (max-width: 500px) 500px, 800px",
         "src": "https://your-s3-domain.com/image-service/2018/7/19/cb0da54b11-800.jpg"
     }
 }

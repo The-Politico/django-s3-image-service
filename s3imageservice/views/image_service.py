@@ -187,10 +187,10 @@ class ImageService(APIView):
             # Multiple size response
             resp_sizes = [img["size"] for img in sorted_imgs]
 
-            resp_srcset = str([
+            resp_srcset = ', '.join([
                 "%s%s %iw" % (base_url, img["filename"], img["size"])
                 for img in sorted_imgs
-            ])[1:-1]
+            ])
 
             resp_img_sizes = []
             for idx, img in enumerate(sorted_imgs):
@@ -202,7 +202,7 @@ class ImageService(APIView):
                     resp_img_sizes.append("{s}px".format(
                         s=img["size"]
                     ))
-            resp_img_sizes = str(resp_img_sizes)[1:-1]
+            resp_img_sizes = ', '.join(resp_img_sizes)
 
             return {
               "success": "ok",
