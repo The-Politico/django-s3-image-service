@@ -21,11 +21,8 @@ celery = "*"
 django-storages = "*"
 django-politico-token-service = "*"
 redis = "*"
-<<<<<<< Updated upstream
-=======
 crayons = "*"
 requests = "*"
 django-cors-headers = "*"
->>>>>>> Stashed changes
 
 [dev-packages]
