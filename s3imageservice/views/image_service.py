@@ -70,7 +70,7 @@ class ImageService(APIView):
         if(file.size > FILE_SIZE_LIMIT):
             raise UnsupportedMediaType(
                 file.content_type,
-                detail="'img' must be less than %sMB" % FILE_SIZE_MB_LIMIT
+                detail="'img' must be less than %sMB" % settings.FILE_MB_LIMIT
             )
 
         if(file.content_type not in FILE_TYPES):
