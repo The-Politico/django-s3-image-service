@@ -1,0 +1,9 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-top: 6px;
+  border: 1px solid $politico-light-gray-type;
+}

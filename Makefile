@@ -9,5 +9,5 @@ dev:
 	gulp --cwd s3imageservice/staticapp/
 
 database:
-	dropdb s3imageservice --if-exists
-	createdb s3imageservice
+	sudo -u postgres dropdb s3imageservice --if-exists
+	sudo -u postgres createdb s3imageservice

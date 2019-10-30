@@ -1,0 +1,37 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  position: relative;
+
+  pre {
+    border-radius: 2px;
+    margin: 30px 0 60px;
+    padding: 2em 10px 10px;
+    background-color: whitesmoke;
+  }
+
+  button {
+    border: 0;
+    color: #ddd;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    outline: none !important;
+    cursor: pointer;
+    font-size: 14px;
+    &:hover {
+      color: #666;
+    }
+    &:active {
+      border: 1px solid #666;
+    }
+    &.copy{
+      right: 10px;
+      top: 5px;
+      &:active{
+        right: 8px;
+        top: 7px;
+      }
+    }
+  }
+}

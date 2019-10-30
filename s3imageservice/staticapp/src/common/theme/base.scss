@@ -1,0 +1,40 @@
+@import '~politico-style/scss/sketch/theme';
+
+body {
+  background-color: white;
+}
+
+textarea {
+  width: 100%;
+}
+
+.blockMenu {
+  margin-left: -22px;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@keyframes spinnerStroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes spinnerScale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes spinnerFill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #28a745;
+  }
+}
+
+@keyframes exFill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $politico-dark-red;
+  }
+}

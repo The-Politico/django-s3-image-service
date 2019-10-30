@@ -1,0 +1,56 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-breadcrumb {
+    font-size: 20px;
+    font-family: $din !important;
+  }
+
+  .align-right {
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin: 0 10px;
+    }
+
+    .info {
+      &.form-error,
+      &.form-info {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 13px;
+        font-weight: 400;
+        font-family: $din;
+        max-width: none;
+        line-height: 1rem;
+      }
+
+      &.form-error {
+        color: $politico-dark-red;
+      }
+
+      &.form-info {
+        color: $politico-dark-gray-type;
+
+        &:nth-of-type(2){
+          border-top: 1px solid $politico-dark-gray-type;
+          padding-top: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .btn {
+      font-size: 15px;
+      padding: 0 10px;
+    }
+  }
+}

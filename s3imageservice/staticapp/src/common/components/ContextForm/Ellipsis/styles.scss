@@ -1,0 +1,39 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 21px;
+  position: relative;
+  cursor: pointer;
+
+  .background {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .dot {
+      background-color: $politico-dark-gray-type;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+  }
+
+  .error-bug {
+    width: 100%;
+    text-align: center;
+    color: $politico-dark-red;
+
+    i {
+      text-align: center;
+    }
+  }
+}

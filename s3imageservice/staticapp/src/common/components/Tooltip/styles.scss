@@ -1,0 +1,9 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  position: absolute;
+  top: 0;
+  right: -15px;
+  font-size: 13px;
+  cursor: help;
+}

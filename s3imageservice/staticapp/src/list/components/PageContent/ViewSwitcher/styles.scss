@@ -1,0 +1,18 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  .switch {
+    padding: 2px 12px 6px;
+
+    svg {
+      fill: $politico-line;
+      width: 15px;
+    }
+
+    &.active {
+      svg {
+        fill: $politico-dark-red;
+      }
+    }
+  }
+}

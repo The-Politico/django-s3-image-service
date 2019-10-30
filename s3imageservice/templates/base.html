@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% block universal-meta %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8">
+    <meta name="robots" content="noarchive">
+    {% endblock %}
+
+    {% block page-meta %}
+    {% endblock %}
+
+    {% block title %}
+    <title>POLITICO S3 Image Service</title>
+    {% endblock %}
+
+
+    {% block styles %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {% endblock %}
+
+    {% block headscripts %}
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+      crossorigin="anonymous">
+    </script>
+    <!--Typekit-->
+    <link rel="stylesheet" href="https://use.typekit.net/ogn0czn.css">
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- end -->
+    {% endblock %}
+
+    {% block api %}
+
+    <!-- CMS Metadata -->
+    <meta name="USER" content="{{ user }}">
+    <meta name="USER_ID" content="{{ user_id }}">
+    <meta name="SERVICES_TOKEN" content="{{ SERVICES_TOKEN }}">
+    <meta name="FILE_MB_LIMIT" content="{{ FILE_MB_LIMIT }}">
+    <meta name="API_ROOT" content="{% url 's3imageservice:cms:api-root' %}">
+    <meta name="UPLOAD_ROOT" content="{% url 's3imageservice:upload' %}">
+    <meta name="S3_ROOT" content="{{ S3_ROOT }}">
+    <meta name="CMS_PAGE_SIZE" content="{{ CMS_PAGE_SIZE }}">
+    <meta name="CMS_DEFAULT_SIZES" content="{{ CMS_DEFAULT_SIZES }}">
+    <!-- end -->
+
+    {% endblock %}
+  </head>
+  <body>
+
+    {% block content %}
+    <div id="app" class="react-app"></div>
+    {% endblock %}
+
+    {% block data %}
+    {% endblock %}
+
+    {% block app %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+  </body>
+</html>

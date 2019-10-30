@@ -1,0 +1,17 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  margin-top: 50px;
+
+  h1 {
+    font-family: $din;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
