@@ -1,0 +1,47 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  width: 45%;
+
+  .inner-wrapper {
+    width: 100%;
+
+    .button-container {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        margin-left: 10px;
+      }
+    }
+
+    &.disabled {
+      button {
+        cursor: not-allowed;
+        border-color: $politico-light-gray-type;
+
+        span,
+        i {
+          color: $politico-light-gray-type;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: transparent;
+          box-shadow: 0 0 0 0.2rem $politico-line !important;
+          border-color: $politico-light-gray-type;
+        }
+      }
+
+    }
+  }
+
+
+}

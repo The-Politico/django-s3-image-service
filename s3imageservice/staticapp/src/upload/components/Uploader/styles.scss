@@ -1,0 +1,99 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  .uploading-space {
+    width: 100%;
+    min-height: calc(100vh - 115px);
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex: 0 0 auto;
+
+      &.instructions {
+        flex: 1;
+      }
+    }
+
+    .washer {
+      position: absolute;
+      top: 0;
+      left: -1px;
+      right: -1px;
+      bottom: 0;
+      z-index: 2;
+      background: repeating-linear-gradient(
+        -55deg,
+        #222,
+        #222 10px,
+        #333 10px,
+        #333 20px
+      );
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.isOver {
+      &.canDrop {
+        .washer {
+          opacity: 0.75;
+          background: rgba(255, 255, 255, 0.8);
+        }
+
+        .instructions-label {
+          border: 3px dashed black;
+        }
+      }
+
+      &.cannotDrop {
+        .washer {
+          opacity: 0.75;
+        }
+
+        .instructions-label {
+          border: 3px dashed $politico-red;
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-family: $din;
+    margin-bottom: 40px;
+  }
+
+  .page-title {
+    padding-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .files-container {
+    max-width: 800px;
+    padding: 0 15px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 33% 33% 33%;
+
+    &.single {
+      grid-template-columns: 100%;
+      .file-wrapper {
+        width: 350px;
+        margin: 0 auto;
+      }
+    }
+
+    &.double {
+      grid-template-columns: 50% 50%;
+    }
+  }
+}

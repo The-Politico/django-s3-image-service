@@ -1,0 +1,30 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  p {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+
+  span[contenteditable="false"] {
+    opacity: 1 !important;
+    color: $politico-dark-gray-type;
+  }
+
+  img {
+    width: 100%;
+  }
+
+}

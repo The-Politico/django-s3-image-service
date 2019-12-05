@@ -1,0 +1,14 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  p {
+    font-family: $din;
+    margin: 0;
+    padding-top: 20px;
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    font-size: 30px;
+    color: $politico-dark-red;
+  }
+}

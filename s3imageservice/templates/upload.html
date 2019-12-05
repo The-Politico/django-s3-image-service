@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO S3 Image Service | Upload</title>
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 's3imageservice/css/main.upload.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 's3imageservice/js/main.upload.js' %}"></script>
+{% endblock %}

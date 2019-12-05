@@ -1,0 +1,70 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  .file {
+    width: 100%;
+    min-width: 200px;
+    box-sizing: border-box;
+    border: 1px solid $politico-line;
+    text-align: center;
+    font-family: $din;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+
+    &.isLink {
+      .image {
+        cursor: pointer;
+      }
+    }
+
+    .image,
+    .filename,
+    .error {
+      width: 100%;
+      text-align: center;
+    }
+
+    .remove {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: $politico-line;
+      font-family: $din;
+      font-weight: bold;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: black;
+      }
+    }
+
+    .image {
+      font-size: 40px;
+      color: $politico-dark-red;
+      overflow: hidden;
+
+      img {
+        height: 100px;
+      }
+    }
+
+    .filename {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .status {
+      margin: 5px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .error {
+      color: $politico-dark-red;
+    }
+  }
+}

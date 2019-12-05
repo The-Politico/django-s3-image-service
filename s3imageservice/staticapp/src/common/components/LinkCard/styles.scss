@@ -1,0 +1,12 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  display: inline-flex;
+  border: 1px solid $politico-dark-red;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  font-size: 32px;
+  text-align: center;
+}

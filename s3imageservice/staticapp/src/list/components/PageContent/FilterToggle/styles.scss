@@ -1,0 +1,12 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  position: relative;
+
+  p {
+    font-family: $din;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}

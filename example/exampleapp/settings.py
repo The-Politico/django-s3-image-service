@@ -5,87 +5,85 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'SECRET')
+SECRET_KEY = os.getenv("SECRET_KEY", "SECRET")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'rest_framework',
-    'tokenservice',
-    's3imageservice',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "corsheaders",
+    "rest_framework",
+    "tokenservice",
+    "s3imageservice",
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'exampleapp.urls'
+ROOT_URLCONF = "exampleapp.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["s3imageservice/cms/templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ]
         },
-    },
+    }
 ]
 
-WSGI_APPLICATION = 'exampleapp.wsgi.application'
+WSGI_APPLICATION = "exampleapp.wsgi.application"
 
 
 DATABASES = {}
-if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config()
+if "DATABASE_URL" in os.environ:
+    DATABASES["default"] = dj_database_url.config()
 else:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    DATABASES["default"] = {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
     },
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -94,48 +92,38 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
-MEDIA_ROOT = 'media/'
+STATIC_URL = "/static/"
+MEDIA_ROOT = "media/"
 
 ###########
 # Logging #
 ###########
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s' # noqa
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"  # noqa
         },
-        'simple': {
-            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M',
-        },
-    },
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+        "simple": {
+            "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M",
         },
     },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        },
-        'debug_console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+    "filters": {
+        "require_debug_true": {"()": "django.utils.log.RequireDebugTrue"}
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "simple"},
+        "debug_console": {
+            "level": "INFO",
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
         },
     },
-    'loggers': {
-        'tasks': {
-            'handlers': ['console'],
-            'level': 'INFO',
-        },
-    },
+    "loggers": {"tasks": {"handlers": ["console"], "level": "INFO"}},
 }
 
 ########
@@ -144,31 +132,32 @@ LOGGING = {
 if DEBUG:
     CORS_ORIGIN_ALLOW_ALL = True
 else:
-    CORS_ORIGIN_WHITELIST = (
-        'localhost:8000',
-        'localhost:3000',
-    )
+    CORS_ORIGIN_WHITELIST = ("localhost:8000", "localhost:3000")
 
 #########################
 # s3imageservice settings
 
 S3IMAGESERVICE_API_AUTHENTICATION_CLASS = (
-    'tokenservice.authentication.TokenAuthentication'
+    "tokenservice.authentication.TokenAuthentication"
 )
-S3IMAGESERVICE_FILE_MB_LIMIT = 100
+S3IMAGESERVICE_FILE_MB_LIMIT = 20
+S3IMAGESERVICE_CMS_PAGE_SIZE = 25
+S3IMAGESERVICE_CMS_DEFAULT_SIZES = [420, 600, 980, 1280, 1400, 2000]
 
-S3IMAGESERVICE_MEDIA_PATH = 'image-service/'
-S3IMAGESERVICE_SECRET_KEY = 'a-bad-secret-key'
+S3IMAGESERVICE_MEDIA_PATH = "image-service/"
+S3IMAGESERVICE_SECRET_KEY = "a-bad-secret-key"
 S3IMAGESERVICE_AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 S3IMAGESERVICE_AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-S3IMAGESERVICE_AWS_REGION = 'us-east-2'
-S3IMAGESERVICE_S3_UPLOAD_ROOT = 'interactives/uploads/image-service/'
+S3IMAGESERVICE_AWS_REGION = "us-east-2"
+S3IMAGESERVICE_S3_UPLOAD_ROOT = "interactives/uploads/image-service/"
 
 ##############
 # Staging S3 #
 ##############
-S3IMAGESERVICE_AWS_S3_BUCKET = 'staging.interactives.politico.com'
-S3IMAGESERVICE_AWS_S3_STATIC_ROOT = 'https://s3.amazonaws.com/staging.interactives.politico.com' # noqa
+S3IMAGESERVICE_AWS_S3_BUCKET = "staging.interactives.politico.com"
+S3IMAGESERVICE_AWS_S3_STATIC_ROOT = (
+    "https://s3.amazonaws.com/staging.interactives.politico.com"
+)  # noqa
 
 #################
 # Production S3 #

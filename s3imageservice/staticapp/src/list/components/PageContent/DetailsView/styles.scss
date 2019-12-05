@@ -1,0 +1,49 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  max-width: 900px;
+  margin: 50px auto 0;
+
+  .day-collection-container {
+    margin: 50px 0;
+  }
+
+
+  .image-row {
+    display: flex;
+    align-items: flex-end;
+    margin: 30px 0;
+
+    & > div {
+      padding: 0 10px;
+      flex: 1 1;
+    }
+
+    .preview {
+      img {
+        width: 100%;
+      }
+    }
+
+    .slug,
+    .canonical {
+      label {
+        margin: 0;
+      }
+      .copy {
+        top: 26px;
+      }
+    }
+
+    .canonical {
+      @media only screen and (max-width: 550px) {
+        display: none;
+      }
+    }
+
+
+    .more {
+      width: 40px;
+    }
+  }
+}

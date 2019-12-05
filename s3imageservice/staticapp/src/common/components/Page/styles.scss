@@ -1,0 +1,30 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+
+  article {
+    max-width: 530px;
+
+    &.break-well {
+      max-width: none;
+    }
+    
+    margin: 0 auto 50px;
+    padding: 0 10px;
+    min-height: calc(100vh - 180px);
+
+    .section {
+      display: flex;
+
+      .main-content {
+        flex: 1;
+        width: 100%;
+      }
+
+      .right-rail {
+        margin-left: 30px;
+        width: 100px;
+      }
+    }
+  }
+}

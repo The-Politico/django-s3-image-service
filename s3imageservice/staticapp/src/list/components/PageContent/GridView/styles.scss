@@ -1,0 +1,35 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  max-width: 900px;
+  margin: 50px auto 0;
+
+  .day-collection-container {
+    margin: 50px 0;
+  }
+
+  h3 {
+    margin: 0 50px;
+
+    @media only screen and (max-width: 550px) {
+      margin: 0;
+    }
+  }
+
+  .day-collection {
+    margin: 10px 0;
+
+    .image {
+      .image-inner-container {
+        display: block;
+        margin: 0;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

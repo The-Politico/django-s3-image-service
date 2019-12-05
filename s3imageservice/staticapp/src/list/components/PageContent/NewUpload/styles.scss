@@ -1,0 +1,17 @@
+@import "~@politico/interactive-style/vars.scss";
+
+.styles :global {
+  width: 100%;
+  margin-bottom: 30px;
+
+  .button-container {
+    width: 100%;
+
+    button {
+      display: block;
+      margin: 0 auto;
+      font-size: 30px;
+    }
+  }
+
+}
