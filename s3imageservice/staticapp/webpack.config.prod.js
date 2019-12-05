@@ -3,13 +3,14 @@ const glob = require('glob');
 const _ = require('lodash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      'Common': path.join(__dirname, 'src/common'),
       'List': path.join(__dirname, 'src/list'),
       'Detail': path.join(__dirname, 'src/detail'),
       'Upload': path.join(__dirname, 'src/upload'),
@@ -50,7 +51,7 @@ module.exports = {
         },
       },
       {
-        test: /theme.*\.s?css$/,
+        test: /theme.*\.scss$/,
         use: [{
           loader: MiniCssExtractPlugin.loader,
         }, {
@@ -66,8 +67,8 @@ module.exports = {
         }],
       },
       {
-        test: /\.s?css$/,
-        exclude: /theme.*\.s?css$/,
+        test: /\.scss$/,
+        exclude: /theme.*\.scss$/,
         use: [{
           loader: MiniCssExtractPlugin.loader,
         }, {
@@ -83,11 +84,22 @@ module.exports = {
           },
         }],
       },
+      {
+        test: /\.css$/,
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+        }, {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+          },
+        }],
+      },
     ],
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         cache: true,
         parallel: true,
         sourceMap: true,
