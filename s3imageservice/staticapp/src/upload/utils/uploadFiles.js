@@ -65,7 +65,7 @@ const upload = (file, settings) => {
 
 const record = async(uploadData) => {
   const canonical = uploadData.canonical;
-  const slug = /^([\d/\w]*)-?[\d]*\.[A-Za-z]{3,4}$/.exec(canonical.split(S3_ROOT)[1])[1];
+  const slug = /^([\d/\w]*)-?[\d]*\.[A-Za-z]{3,4}$/.exec(uploadData.urls[0].split(S3_ROOT)[1])[1];
   try {
     const resp = await api.upload.POST({
       data: {
