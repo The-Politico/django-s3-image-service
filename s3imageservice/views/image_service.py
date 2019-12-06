@@ -29,8 +29,8 @@ class ImageService(APIView):
     """
 
     authentication_classes = (
-        SessionAuthentication,
         settings.API_AUTHENTICATION_CLASS,
+        SessionAuthentication,
     )
     permission_classes = (IsAuthenticated, settings.API_PERMISSION_CLASS)
 
