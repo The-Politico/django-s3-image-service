@@ -7,7 +7,7 @@ from .views import Detail, List, Upload
 router = routers.DefaultRouter()
 router.register(r"upload", UploadViewset, base_name="upload")
 
-app_name = "s3imageservice_cms"
+app_name = "cms"
 
 urlpatterns = [
     path("", List.as_view(), name="list"),

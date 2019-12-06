@@ -3,7 +3,7 @@ from django.views.generic.base import RedirectView
 
 
 class Upload(CMSBaseView):
-    template_name = "upload.html"
+    template_name = "s3imageservice/upload.html"
 
     def test_model_instance_exists(self, request, *args, **kwargs):
         pass

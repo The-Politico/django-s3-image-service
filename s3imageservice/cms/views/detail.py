@@ -4,7 +4,7 @@ from s3imageservice.models import Upload
 
 
 class Detail(CMSBaseView):
-    template_name = "detail.html"
+    template_name = "s3imageservice/detail.html"
     model = Upload
 
     def test_model_instance_exists(self, request, *args, **kwargs):
