@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="django-s3-image-service",
-    version="1.0.4",
+    version="1.0.5",
     description="Handle s3 image uploads via API with some sizing and processing options.",
     url="https://github.com/The-Politico/django-s3-image-service",
     author="POLITICO interactive news",
