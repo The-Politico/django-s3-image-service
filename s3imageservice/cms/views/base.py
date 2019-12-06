@@ -1,7 +1,6 @@
 import os
 from django.http import Http404
 from django.views.generic import TemplateView
-from django.urls import reverse_lazy
 from django.conf import settings
 from s3imageservice.conf import settings as app_settings
 from s3imageservice.utils.auth import secure

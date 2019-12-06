@@ -6,5 +6,8 @@ app_name = "s3imageservice"
 
 urlpatterns = [
     path("", ImageService.as_view(), name="upload"),
-    path("cms/", include("s3imageservice.cms.urls", namespace="cms")),
+    path(
+        "cms/",
+        include("s3imageservice.cms.urls", namespace="s3imageservice_cms"),
+    ),
 ]

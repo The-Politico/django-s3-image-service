@@ -1,6 +1,5 @@
 from s3imageservice.cms.views.base import CMSBaseView
 from django.views.generic.base import RedirectView
-from django.urls import reverse
 
 
 class List(CMSBaseView):
