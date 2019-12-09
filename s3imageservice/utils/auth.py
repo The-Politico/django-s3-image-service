@@ -1,9 +1,15 @@
 from django.conf import settings as project_settings
 from django.utils.decorators import method_decorator
+from rest_framework.authentication import SessionAuthentication
 
 from s3imageservice.conf import settings
 
 from .importers import import_class
+
+
+class CsrfExemptSessionAuthentication(SessionAuthentication):
+    def enforce_csrf(self, request):
+        pass
 
 
 def secure(view):

@@ -11,8 +11,8 @@ from rest_framework.decorators import parser_classes
 from rest_framework.response import Response
 from rest_framework.exceptions import UnsupportedMediaType, ParseError
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import SessionAuthentication
 
+from s3imageservice.utils.auth import CsrfExemptSessionAuthentication
 from s3imageservice.conf import settings
 from s3imageservice.celery import process_images
 
@@ -29,7 +29,7 @@ class ImageService(APIView):
     """
 
     authentication_classes = (
-        SessionAuthentication,
+        CsrfExemptSessionAuthentication,
         settings.API_AUTHENTICATION_CLASS,
     )
     permission_classes = (IsAuthenticated, settings.API_PERMISSION_CLASS)
