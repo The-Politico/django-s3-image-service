@@ -17,7 +17,7 @@
     "journalize": "^2.2.0",
     "lodash": "*",
     "politico-style": "^3.0.16",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.23.0",
     "random-hash": "^4.0.1",
     "react": "*",
     "react-datepicker": "^2.8.0",
